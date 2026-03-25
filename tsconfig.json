@@ -1,10 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "ESNEXT",
-    "module": "commonjs",
-    "declaration": true,
-    "outDir": "./dist",
-    "rootDir": ".",
-    "strict": true
-  }
+    "compilerOptions": {
+        "target": "ESNEXT",
+        "module": "esnext",
+        "declaration": true,
+        "outDir": "./dist",
+        "rootDir": "./lib",
+        "strict": true
+    }
 }
