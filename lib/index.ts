@@ -160,7 +160,14 @@ export class StreamableResultList<ResultType> {
             this.internalList = packet.fullList
             this.updateTick()
         } else {
-            // TODO: merge extender packet and update / call handlers + subscribers
+            if (packet.destroy) {
+                this.destroy(packet.resultExtender.uuid)
+            } else {
+                this.extend(
+                    packet.resultExtender.uuid,
+                    packet.resultExtender.data
+                )
+            }
         }
     }
 }
