@@ -175,27 +175,27 @@ export class StreamableResultList<ResultType> {
 /////////////////// EXAMPLE USAGE /////////////////////////////
 
 /* ## SERVER ## */
-type MusicSchema = {
-    name: string
-    artist: string
-    coverUrl: string
-}
+// type MusicSchema = {
+//     name: string
+//     artist: string
+//     coverUrl: string
+// }
 
-const results = new StreamableResultList<MusicSchema>()
+// const results = new StreamableResultList<MusicSchema>()
 
-const diamonds = results.publish({
-    name: 'Diamonds',
-    artist: 'Rihanna'
-})
+// const diamonds = results.publish({
+//     name: 'Diamonds',
+//     artist: 'Rihanna'
+// })
 
-results.subscribe(console.log)
+// results.subscribe(console.log)
 
-setTimeout(() => {
-    diamonds.extend({
-        coverUrl:
-            'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/45369a4d-49b0-4199-8099-39262f50cc39/dlnqzh8-37dcf805-daa4-40fd-8abb-d3811a2a38fb.png/v1/fit/w_640,h_640,q_70,strp/diamond_by_duanxx_dlnqzh8-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6Ii9mLzQ1MzY5YTRkLTQ5YjAtNDE5OS04MDk5LTM5MjYyZjUwY2MzOS9kbG5xemg4LTM3ZGNmODA1LWRhYTQtNDBmZC04YWJiLWQzODExYTJhMzhmYi5wbmciLCJ3aWR0aCI6Ijw9NjQwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.TCVsi2-yjCqytrLMJNtFWCQNMBldTxXtkcGo3uE9pVo'
-    })
-}, 1000)
+// setTimeout(() => {
+//     diamonds.extend({
+//         coverUrl:
+//             'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/45369a4d-49b0-4199-8099-39262f50cc39/dlnqzh8-37dcf805-daa4-40fd-8abb-d3811a2a38fb.png/v1/fit/w_640,h_640,q_70,strp/diamond_by_duanxx_dlnqzh8-375w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjQwIiwicGF0aCI6Ii9mLzQ1MzY5YTRkLTQ5YjAtNDE5OS04MDk5LTM5MjYyZjUwY2MzOS9kbG5xemg4LTM3ZGNmODA1LWRhYTQtNDBmZC04YWJiLWQzODExYTJhMzhmYi5wbmciLCJ3aWR0aCI6Ijw9NjQwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.TCVsi2-yjCqytrLMJNtFWCQNMBldTxXtkcGo3uE9pVo'
+//     })
+// }, 1000)
 
 /* ## CLIENT ## */
 // const [res, setRes] = useState<Partial<MusicSchema>>([])
@@ -203,5 +203,5 @@ setTimeout(() => {
 // rl.hookToState(res, setRes)
 // // now access state with res in a react manner
 // or via http:
-const remoteResults = new StreamableResultList<MusicSchema>()
+// const remoteResults = new StreamableResultList<MusicSchema>()
 // onArrival(packet) => remoteResults.handlePacket(packet) // pseudo-code ofc
