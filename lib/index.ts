@@ -29,6 +29,9 @@ export class StreamableResultList<ResultType> {
     private extenderPacketHandlers: ((
         packet: SRLExtenderPacket<ResultType>
     ) => void)[] = []
+    private onCloseHandlers: (() => void)[] = []
+
+    isClosed: boolean = false
 
     constructor() {}
 
@@ -55,6 +58,17 @@ export class StreamableResultList<ResultType> {
         for (const fn of this.extenderPacketHandlers) {
             fn(packet)
         }
+    }
+
+    close() {
+        this.isClosed = true
+        for (const handler of this.onCloseHandlers) {
+            handler()
+        }
+    }
+
+    onClose(fn: (typeof this.onCloseHandlers)[0]) {
+        this.onCloseHandlers.push(fn)
     }
 
     onExtenderPacket(
