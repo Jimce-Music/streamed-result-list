@@ -169,6 +169,10 @@ export class StreamableResultList<ResultType> {
         this.subscribers.push(subscriptionHandlerFn)
     }
 
+    asArray() {
+        return this.internalList.map((e) => e.data)
+    }
+
     handlePacket(packet: SRLJSONPacket<ResultType>) {
         if (packet.isInitPacket) {
             this.internalList = packet.fullList
