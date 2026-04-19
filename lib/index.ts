@@ -1,5 +1,6 @@
 import type React from 'react'
 import { v7 } from 'uuid'
+import { merge } from 'lodash'
 
 export type ResultExtender<ResultType> = {
     uuid: string
@@ -90,14 +91,14 @@ export class StreamableResultList<ResultType> {
             if (existingResult.id === id) {
                 this.internalList[i] = {
                     id,
-                    data: { ...existingResult.data, ...result } // merges existing result + new extended data (overwrites correctly)
+                    data: merge(existingResult.data, result) // merges existing result + new extended data (overwrites correctly)
                 }
                 this.updateTick()
                 this.triggerExtenderPacket({
                     isInitPacket: false,
                     resultExtender: {
                         uuid: id,
-                        data: { ...existingResult.data, ...result }
+                        data: merge(existingResult.data, result)
                     }
                 })
                 return
